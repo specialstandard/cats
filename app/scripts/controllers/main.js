@@ -16,13 +16,16 @@ angular.module('catApp')
     }
     $scope.error = false;
 
+    // Get the pets
+
     apiService.getPets()
       .then( function(response){
         $scope.petsArray = response.data
-        console.log( 'pets: ', $scope.petsArray )
 
         var owner;
         var pet;
+
+        // Push them into male and female arrays, respectively
 
         for(var i = 0; i< $scope.petsArray.length; i++){
           owner = $scope.petsArray[i];
@@ -46,7 +49,19 @@ angular.module('catApp')
               }
           } 
         }
+
+        // Sort them by name alphabetically
+
+        $scope.cats.female.sort( function(a,b){
+          return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+        });
+        $scope.cats.male.sort(function(a,b){
+          return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+        });
       })
+
+      // Catch and display any error
+
       .catch(function(e){
         $scope.error = true;
         console.log("Error getting pets")
