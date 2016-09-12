@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h1>Cats!</h1>
+  <p class="lead">
+    <img src="images/cat.png" alt="I'm Yeoman"><br>
+    Developed by Brian Ardito
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/contact">Contact!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div class="row cats">
+
+  <h4>Male</h4>
+  <ul>
+    <li ng-repeat='cat in cats.male'>
+      {{cat.name}}
+    </li>
+  </ul>
+
+  <h4>Female</h4>
+  <ul>
+    <li ng-repeat='cat in cats.female'>
+      {{cat.name}}
+    </li>
+  </ul>
+
+</div>
