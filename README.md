@@ -1,4 +1,6 @@
-# cat
+# Cats
+
+Consumes REST API and displays a list of cats alphabetically under a heading of their user's gender.
 
 Ready to run on any server
 
