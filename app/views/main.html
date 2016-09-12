@@ -9,6 +9,8 @@
 
 <div class="row cats">
 
+  <h4 ng-if="error" class = "text-danger">Error getting cats</h4>
+
   <h4>Male</h4>
   <ul>
     <li ng-repeat='cat in cats.male'>

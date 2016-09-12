@@ -8,14 +8,15 @@
  * Controller of the catApp
  */
 angular.module('catApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', ['$scope', '$http', 'apiService', function ($scope, $http, apiService) {
 
     $scope.cats = {
       female: [],
       male: []
     }
+    $scope.error = false;
 
-    $http.get('models/pets.json')
+    apiService.getPets()
       .then( function(response){
         $scope.petsArray = response.data
         console.log( 'pets: ', $scope.petsArray )
@@ -46,4 +47,10 @@ angular.module('catApp')
           } 
         }
       })
-  });
+      .catch(function(e){
+        $scope.error = true;
+        console.log("Error getting pets")
+        console.log("Error: ", e.status)
+        console.log("Error Message: ", e.statusText)
+      });
+  }]);

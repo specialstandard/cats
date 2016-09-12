@@ -10,8 +10,7 @@
 angular.module('catApp')
   .controller('LayoutCtrl', function ($scope, $location) {
     $scope.isActive = function(path){
-		console.log('path: ', path)
-		console.log('$location.path(): ', $location.path())
+		
 		return $location.path() === path;
 	}
   });
